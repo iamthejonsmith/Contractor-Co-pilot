@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="B87-F7-dSK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="B87-F7-dSK">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -451,16 +451,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NuTechLogoClear.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cw2-yd-1iP">
+                                <rect key="frame" x="16" y="72" width="82" height="51"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="xXG-7R-OVn"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jxh-rq-5W8" firstAttribute="top" secondItem="Rkv-BF-3m2" secondAttribute="bottom" constant="30" id="4tn-FS-Mio"/>
                             <constraint firstAttribute="centerX" secondItem="lbW-4F-z76" secondAttribute="centerX" constant="-0.5" id="6Dd-xj-hTC"/>
+                            <constraint firstItem="Cw2-yd-1iP" firstAttribute="top" secondItem="oM4-4v-4jO" secondAttribute="bottom" constant="8" symbolic="YES" id="Aef-mq-l1o"/>
                             <constraint firstAttribute="centerX" secondItem="Rkv-BF-3m2" secondAttribute="centerX" constant="-0.5" id="DUD-fn-7k3"/>
                             <constraint firstAttribute="centerX" secondItem="8ny-J3-z96" secondAttribute="centerX" constant="-0.5" id="DpG-VL-7lQ"/>
+                            <constraint firstItem="Cw2-yd-1iP" firstAttribute="leading" secondItem="r0z-aL-k8x" secondAttribute="leadingMargin" id="Laf-EW-v0n"/>
                             <constraint firstItem="Rkv-BF-3m2" firstAttribute="top" secondItem="8ny-J3-z96" secondAttribute="bottom" constant="30" id="RsU-OT-1GW"/>
                             <constraint firstItem="xuN-Ii-9P8" firstAttribute="top" secondItem="lbW-4F-z76" secondAttribute="bottom" constant="30" id="TCV-5f-97o"/>
                             <constraint firstAttribute="centerX" secondItem="xuN-Ii-9P8" secondAttribute="centerX" constant="-0.5" id="WsF-rf-hub"/>
+                            <constraint firstItem="tpK-AR-9Sf" firstAttribute="top" secondItem="Cw2-yd-1iP" secondAttribute="bottom" constant="477" id="bem-2w-XDd"/>
                             <constraint firstItem="MaZ-wW-dyM" firstAttribute="top" secondItem="oM4-4v-4jO" secondAttribute="bottom" constant="96" id="cbI-IG-ihc"/>
                             <constraint firstAttribute="centerX" secondItem="jxh-rq-5W8" secondAttribute="centerX" constant="-0.5" id="dui-aj-i8b"/>
                             <constraint firstItem="8ny-J3-z96" firstAttribute="top" secondItem="MaZ-wW-dyM" secondAttribute="bottom" constant="30" id="lRY-Bp-54v"/>

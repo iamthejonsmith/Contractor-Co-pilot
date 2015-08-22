@@ -3,7 +3,7 @@
 //  Contractor Co-pilot
 //
 //  Created by Jon Smith on 8/17/15.
-//  Copyright (c) 2015 Jon Smith. All rights reserved.
+//  Copyright (c) 2015 Nutech Systems, inc. All rights reserved.
 //
 #define kOFFSET_FOR_KEYBOARD 90.0
 
@@ -54,6 +54,12 @@ CLLocationCoordinate2D center;
     _cityField.delegate = self;
     _stateField.delegate = self;
     _zipField.delegate = self;
+    
+    _streetNumberField.text = _appDelegate.myLocation.streetNumber;
+    _addressField.text = _appDelegate.myLocation.streetName;
+    _cityField.text = _appDelegate.myLocation.city;
+    _stateField.text = _appDelegate.myLocation.state;
+    _zipField.text = _appDelegate.myLocation.zip;
     
     _submitAddressButton.layer.cornerRadius = 4;
     _submitAddressButton.layer.masksToBounds = YES;

@@ -3,7 +3,7 @@
 //  Contractor Co-pilot
 //
 //  Created by Jon Smith on 8/18/15.
-//  Copyright (c) 2015 Jon Smith. All rights reserved.
+//  Copyright (c) 2015 Nutech Systems, inc. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

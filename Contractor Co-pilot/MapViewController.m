@@ -2,7 +2,7 @@
 //  MapViewController.m
 //  JPMorganChaseSample
 //
-//  Created by Joffrey Mann on 7/30/15.
+//  Created by Jon Smith on 7/30/15.
 //  Copyright (c) 2015 Nutech. All rights reserved.
 //
 
