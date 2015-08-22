@@ -17,7 +17,6 @@
 		9F5F7BE91B8207C100691338 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F5F7BE71B8207C100691338 /* LaunchScreen.xib */; };
 		9F5F7BF51B8207C100691338 /* Contractor_Co_pilotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F7BF41B8207C100691338 /* Contractor_Co_pilotTests.m */; };
 		9F5F7C021B820BB200691338 /* myLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F7C011B820BB200691338 /* myLocation.m */; };
-		9F5F7C071B820F1F00691338 /* NutechImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F5F7C061B820F1F00691338 /* NutechImage.png */; };
 		9F5F7C0A1B820FC600691338 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F7C091B820FC600691338 /* MBProgressHUD.m */; };
 		9F5F7C0E1B82109F00691338 /* vendorLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F7C0D1B82109F00691338 /* vendorLocation.m */; };
 		9F5F7C111B82175000691338 /* locationListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F7C101B82175000691338 /* locationListTableViewController.m */; };
@@ -29,6 +28,9 @@
 		9F9B76EA1B8611A5005AE129 /* Nutech-Systems-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F9B76E91B8611A5005AE129 /* Nutech-Systems-logo.png */; };
 		9F9B76F11B861D6A005AE129 /* redGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F9B76F01B861D6A005AE129 /* redGradient.png */; };
 		9FAFB3261B86C1FE00C6BA00 /* changeLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAFB3251B86C1FE00C6BA00 /* changeLocationViewController.m */; };
+		9FAFB36E1B88BFFB00C6BA00 /* Nutech-Systems-logoLoad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAFB36D1B88BFFB00C6BA00 /* Nutech-Systems-logoLoad.png */; };
+		9FAFB3701B88C6E500C6BA00 /* Nutech-Systems-logoClear.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAFB36F1B88C6E500C6BA00 /* Nutech-Systems-logoClear.png */; };
+		9FAFB3781B88D44400C6BA00 /* NuTechLogoClear.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAFB3771B88D44400C6BA00 /* NuTechLogoClear.png */; };
 		9FE579751B85228300440C78 /* navigate48.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE579741B85228300440C78 /* navigate48.png */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +63,6 @@
 		9F5F7BF41B8207C100691338 /* Contractor_Co_pilotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Contractor_Co_pilotTests.m; sourceTree = "<group>"; };
 		9F5F7C001B820BB200691338 /* myLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myLocation.h; sourceTree = "<group>"; };
 		9F5F7C011B820BB200691338 /* myLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myLocation.m; sourceTree = "<group>"; };
-		9F5F7C061B820F1F00691338 /* NutechImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NutechImage.png; sourceTree = "<group>"; };
 		9F5F7C081B820FC600691338 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		9F5F7C091B820FC600691338 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		9F5F7C0C1B82109F00691338 /* vendorLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vendorLocation.h; sourceTree = "<group>"; };
@@ -81,6 +82,9 @@
 		9F9B76E91B8611A5005AE129 /* Nutech-Systems-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nutech-Systems-logo.png"; sourceTree = "<group>"; };
 		9F9B76F01B861D6A005AE129 /* redGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redGradient.png; sourceTree = "<group>"; };
 		9FAFB3251B86C1FE00C6BA00 /* changeLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changeLocationViewController.m; sourceTree = "<group>"; };
+		9FAFB36D1B88BFFB00C6BA00 /* Nutech-Systems-logoLoad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nutech-Systems-logoLoad.png"; sourceTree = "<group>"; };
+		9FAFB36F1B88C6E500C6BA00 /* Nutech-Systems-logoClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nutech-Systems-logoClear.png"; sourceTree = "<group>"; };
+		9FAFB3771B88D44400C6BA00 /* NuTechLogoClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NuTechLogoClear.png; sourceTree = "<group>"; };
 		9FE579741B85228300440C78 /* navigate48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigate48.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,10 +224,12 @@
 		9F9B76ED1B86170B005AE129 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9FAFB3771B88D44400C6BA00 /* NuTechLogoClear.png */,
 				9F9B76F01B861D6A005AE129 /* redGradient.png */,
+				9FAFB36D1B88BFFB00C6BA00 /* Nutech-Systems-logoLoad.png */,
 				9F9B76E91B8611A5005AE129 /* Nutech-Systems-logo.png */,
+				9FAFB36F1B88C6E500C6BA00 /* Nutech-Systems-logoClear.png */,
 				9FE579741B85228300440C78 /* navigate48.png */,
-				9F5F7C061B820F1F00691338 /* NutechImage.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -308,13 +314,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F5F7C071B820F1F00691338 /* NutechImage.png in Resources */,
+				9FAFB36E1B88BFFB00C6BA00 /* Nutech-Systems-logoLoad.png in Resources */,
 				9FE579751B85228300440C78 /* navigate48.png in Resources */,
 				9F9B76F11B861D6A005AE129 /* redGradient.png in Resources */,
+				9FAFB3701B88C6E500C6BA00 /* Nutech-Systems-logoClear.png in Resources */,
 				9F9B76EA1B8611A5005AE129 /* Nutech-Systems-logo.png in Resources */,
 				9F5F7BE41B8207C100691338 /* Main.storyboard in Resources */,
 				9F5F7BE91B8207C100691338 /* LaunchScreen.xib in Resources */,
 				9F5F7BE61B8207C100691338 /* Images.xcassets in Resources */,
+				9FAFB3781B88D44400C6BA00 /* NuTechLogoClear.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

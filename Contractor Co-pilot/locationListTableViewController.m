@@ -90,8 +90,8 @@
                                                                                                  error:nil];
                                   
                                   if (responseData) {
-                                      NSArray *immutablePosts = responseData[@"listings"];
-                                      for (NSDictionary *listingDictionary in immutablePosts) {
+                                      NSArray *immutableListings = responseData[@"listings"];
+                                      for (NSDictionary *listingDictionary in immutableListings) {
                                           NSString *name = listingDictionary[@"name"];
                                           NSDictionary *addressDict = listingDictionary[@"address"];
                                           NSString *street = addressDict[@"street"];
