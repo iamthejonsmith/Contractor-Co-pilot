@@ -3,21 +3,82 @@
 //  Contractor Co-pilot
 //
 //  Created by Jon Smith on 8/17/15.
-//  Copyright (c) 2015 Jon Smith. All rights reserved.
+//  Copyright (c) 2015 Nutech Systems, inc. All rights reserved.
 //
 
+#define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
 #import "AppDelegate.h"
+#import "locationViewController.h"
 
 @interface AppDelegate ()
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
 @implementation AppDelegate
 
+    CLLocationManager *locationManager;
+    CLGeocoder *geocoder;
+    CLPlacemark *placemark;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [NSThread sleepForTimeInterval:5];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"redGradient.png"] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    if([userDefaults objectForKey:@"SavedLocation"] == nil)
+    {
+        [self startUpdating];
+    }
+    
+    else
+    {
+        NSDictionary *locDict = [userDefaults objectForKey:@"SavedLocation"];
+        
+        _myLocation = [[myLocation alloc]init];
+        
+        _myLocation.streetNumber = locDict[@"StreetNumber"];
+        _myLocation.streetName = locDict[@"StreetName"];
+        _myLocation.city = locDict[@"City"];
+        _myLocation.state = locDict[@"State"];
+        _myLocation.zip = locDict[@"Zip"];
+        _myLocation.latitude = locDict[@"Latitude"];
+        _myLocation.longitude = locDict[@"Longitude"];
+        
+        _currLocation = [NSString stringWithFormat:@"%@ %@\n %@, %@ %@", _myLocation.streetNumber, _myLocation.streetName, _myLocation.city, _myLocation.state, _myLocation.zip];
+        
+    }
+    
+    
     return YES;
+}
+
+-(CAGradientLayer *)makeBackgroundLayerForView:(UIView *)view
+{
+    CAGradientLayer *viewLayer = [CAGradientLayer layer];
+    viewLayer.frame = view.bounds;
+    viewLayer.colors = [NSArray arrayWithObjects:
+                        (id)[[UIColor darkGrayColor] CGColor],
+                        (id)[[UIColor darkTextColor] CGColor],
+                        nil];
+    
+    return viewLayer;
+}
+
+-(void)setInitialLocation:(NSString *)location
+{
+    [self.locDelegate setLocationLabel:location];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -121,6 +182,75 @@
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
+    }
+}
+
+-(void)startUpdating{
+    self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager.delegate = self;
+    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    _locationManager.distanceFilter = kCLDistanceFilterNone;
+    [self.locationManager startUpdatingLocation];
+    
+#ifdef __IPHONE_8_0
+    if(IS_OS_8_OR_LATER){
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+#endif
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    CLGeocoder *geocoder = [[CLGeocoder alloc]init];
+    CLLocation *currentLocation = (CLLocation *)[locations lastObject];
+    __block CLPlacemark *placemark = self.placemark;
+    self.placemark = placemark;
+    if (currentLocation != nil) {
+    
+    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        if (error == nil && [placemarks count] > 0) {
+            placemark = [placemarks lastObject];
+           _myLocation = [[myLocation alloc]init];
+            
+            _myLocation.name = @"";
+            _myLocation.streetNumber = placemark.subThoroughfare;
+            _myLocation.streetName = placemark.thoroughfare;
+            _myLocation.city = placemark.locality;
+            _myLocation.state = placemark.administrativeArea;
+            _myLocation.zip = placemark.postalCode;
+            _myLocation.latitude = [NSString stringWithFormat:@"%.02f", currentLocation.coordinate.latitude];
+            _myLocation.longitude = [NSString stringWithFormat:@"%.02f", currentLocation.coordinate.longitude];
+            
+            
+            _currLocation = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@",
+                             placemark.subThoroughfare,
+                             placemark.thoroughfare,
+                             placemark.postalCode,
+                             placemark.locality,
+                             placemark.administrativeArea];
+            
+            if(_currLocation != nil){
+                [self setInitialLocation:_currLocation];
+                // Stop Location Manager
+                [self.locationManager stopUpdatingLocation];
+            }
+            else{
+                [self.locDelegate setLocationLabel:@"Updating Location ..."];
+            }
+            } else {
+                NSLog(@"%@", error.debugDescription);
+            }
+        } ];
     }
 }
 
