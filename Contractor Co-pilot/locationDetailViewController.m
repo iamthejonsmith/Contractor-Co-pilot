@@ -35,8 +35,8 @@
     _phoneNumber = @"Phone not implemented!";
     
     self.navigationItem.title = _passedVendor.vendorName;
-    _nameLabel.text = [NSString stringWithFormat:@"Name: %@", _passedVendor.vendorName];
-    _addressLabel.text = [NSString stringWithFormat:@"Address: %@", _passedVendor.vendorAddress];
+    _nameLabel.text = [NSString stringWithFormat:@"%@", _passedVendor.vendorName];
+    _addressLabel.text = [NSString stringWithFormat:@"%@", _passedVendor.vendorAddress];
     _phoneLabel.text = [NSString stringWithFormat:@"%@", _phoneNumber];
     
     CAGradientLayer *viewLayer = [CAGradientLayer layer];
@@ -51,6 +51,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)toYellowAPI:(id)sender
+{
+    NSURL *url = [NSURL URLWithString:@"http://badge.yellowapi.com/"];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 @end

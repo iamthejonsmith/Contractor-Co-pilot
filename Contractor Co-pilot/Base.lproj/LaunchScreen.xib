@@ -14,13 +14,6 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grayGradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="o8w-iX-if8">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PoweredByYellowAPI.png" translatesAutoresizingMaskIntoConstraints="NO" id="rlW-3I-vL8">
-                    <rect key="frame" x="383" y="417" width="78" height="18"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="18" id="F9a-7D-r66"/>
-                        <constraint firstAttribute="width" constant="78" id="yTF-Fs-MxJ"/>
-                    </constraints>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nutech-Systems-logoClear.png" translatesAutoresizingMaskIntoConstraints="NO" id="U7W-pw-83T">
                     <rect key="frame" x="96" y="158" width="288" height="163"/>
                     <constraints>
@@ -39,6 +32,13 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PoweredByYellowAPI.png" translatesAutoresizingMaskIntoConstraints="NO" id="rlW-3I-vL8">
+                    <rect key="frame" x="383" y="417" width="78" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="F9a-7D-r66"/>
+                        <constraint firstAttribute="width" constant="78" id="yTF-Fs-MxJ"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

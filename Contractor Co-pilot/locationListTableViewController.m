@@ -63,7 +63,7 @@
     Vendor *vendorAtIndex = _vendors[indexPath.row];
     
     cell.textLabel.text = vendorAtIndex.vendorName;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.02f", vendorAtIndex.distance];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.02f miles", vendorAtIndex.distance];
     
     return cell;
 }
