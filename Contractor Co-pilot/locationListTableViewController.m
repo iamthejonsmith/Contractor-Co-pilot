@@ -40,6 +40,9 @@
     _appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     self.navigationItem.title = _passedVendorType;
     [self loadRequest];
+    
+    CAGradientLayer *viewLayer = [_appDelegate makeBackgroundLayerForView:self.view];
+    [self.view.layer insertSublayer:viewLayer atIndex:0];
 }
 
 - (void)didReceiveMemoryWarning {
