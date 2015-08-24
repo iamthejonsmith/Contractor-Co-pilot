@@ -79,7 +79,7 @@
     [self loadingOverlay];
     NSString *location = _appDelegate.myLocation.city;
     NSString *queryString = [_passedVendorType stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-    NSString *urlString = [NSString stringWithFormat:@"http://api.sandbox.yellowapi.com/FindBusiness/?what=%@&where=%@&fmt=json&UID=127.0.0.1&apikey=qu8a8arkxntgtptn5wp4tcbs", queryString, location];
+    NSString *urlString = [NSString stringWithFormat:@"http://api.sandbox.yellowapi.com/FindBusiness/?what=%@&where=%@&fmt=json&UID=127.0.0.1&apikey=svu68f2kz5snynqrdnetv76u", queryString, location];
     NSURL *myURL = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:myURL];
     NSURLSessionTask *task = [_session dataTaskWithRequest:request completionHandler:

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F00DEB31B8B465F00E1DD9A /* grayGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F00DEB21B8B465F00E1DD9A /* grayGradient.png */; };
 		9F2C50021B84D87600E6CEA9 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2C50011B84D87600E6CEA9 /* Location.m */; };
 		9F5F7BD81B8207C100691338 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F7BD71B8207C100691338 /* main.m */; };
 		9F5F7BDB1B8207C100691338 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F7BDA1B8207C100691338 /* AppDelegate.m */; };
@@ -32,6 +33,7 @@
 		9FAFB3701B88C6E500C6BA00 /* Nutech-Systems-logoClear.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAFB36F1B88C6E500C6BA00 /* Nutech-Systems-logoClear.png */; };
 		9FAFB3781B88D44400C6BA00 /* NuTechLogoClear.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAFB3771B88D44400C6BA00 /* NuTechLogoClear.png */; };
 		9FE579751B85228300440C78 /* navigate48.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE579741B85228300440C78 /* navigate48.png */; };
+		9FE7F5151B8B75D60045E89E /* PoweredByYellowAPI.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE7F5141B8B75D60045E89E /* PoweredByYellowAPI.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F00DEB21B8B465F00E1DD9A /* grayGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayGradient.png; sourceTree = "<group>"; };
 		9F2C50001B84D87600E6CEA9 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		9F2C50011B84D87600E6CEA9 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		9F5F7BD21B8207C100691338 /* Contractor Co-pilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Contractor Co-pilot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +89,7 @@
 		9FAFB36F1B88C6E500C6BA00 /* Nutech-Systems-logoClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nutech-Systems-logoClear.png"; sourceTree = "<group>"; };
 		9FAFB3771B88D44400C6BA00 /* NuTechLogoClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NuTechLogoClear.png; sourceTree = "<group>"; };
 		9FE579741B85228300440C78 /* navigate48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigate48.png; sourceTree = "<group>"; };
+		9FE7F5141B8B75D60045E89E /* PoweredByYellowAPI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PoweredByYellowAPI.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +228,8 @@
 		9F9B76ED1B86170B005AE129 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9FE7F5141B8B75D60045E89E /* PoweredByYellowAPI.png */,
+				9F00DEB21B8B465F00E1DD9A /* grayGradient.png */,
 				9FAFB3771B88D44400C6BA00 /* NuTechLogoClear.png */,
 				9F9B76F01B861D6A005AE129 /* redGradient.png */,
 				9FAFB36D1B88BFFB00C6BA00 /* Nutech-Systems-logoLoad.png */,
@@ -318,8 +324,10 @@
 				9FE579751B85228300440C78 /* navigate48.png in Resources */,
 				9F9B76F11B861D6A005AE129 /* redGradient.png in Resources */,
 				9FAFB3701B88C6E500C6BA00 /* Nutech-Systems-logoClear.png in Resources */,
+				9FE7F5151B8B75D60045E89E /* PoweredByYellowAPI.png in Resources */,
 				9F9B76EA1B8611A5005AE129 /* Nutech-Systems-logo.png in Resources */,
 				9F5F7BE41B8207C100691338 /* Main.storyboard in Resources */,
+				9F00DEB31B8B465F00E1DD9A /* grayGradient.png in Resources */,
 				9F5F7BE91B8207C100691338 /* LaunchScreen.xib in Resources */,
 				9F5F7BE61B8207C100691338 /* Images.xcassets in Resources */,
 				9FAFB3781B88D44400C6BA00 /* NuTechLogoClear.png in Resources */,

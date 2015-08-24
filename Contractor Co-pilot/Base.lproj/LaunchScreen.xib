@@ -11,36 +11,51 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contractor Co-pilot" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="20" y="140" width="441" height="43"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nutech-Systems-logoLoad.png" translatesAutoresizingMaskIntoConstraints="NO" id="roY-ZB-Hgt">
-                    <rect key="frame" x="133" y="196" width="240" height="128"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grayGradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="o8w-iX-if8">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PoweredByYellowAPI.png" translatesAutoresizingMaskIntoConstraints="NO" id="rlW-3I-vL8">
+                    <rect key="frame" x="383" y="417" width="78" height="18"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="240" id="9Xp-fe-LhI"/>
-                        <constraint firstAttribute="height" constant="128" id="JLD-GT-T4M"/>
+                        <constraint firstAttribute="height" constant="18" id="F9a-7D-r66"/>
+                        <constraint firstAttribute="width" constant="78" id="yTF-Fs-MxJ"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nutech-Systems-logoClear.png" translatesAutoresizingMaskIntoConstraints="NO" id="U7W-pw-83T">
+                    <rect key="frame" x="96" y="158" width="288" height="163"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="163" id="x1V-ag-UCW"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 Nutech Systems, Inc. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="7" y="431" width="466" height="21"/>
+                    <rect key="frame" x="7" y="443" width="466" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contractor Co-pilot" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
+                    <rect key="frame" x="20" y="87" width="441" height="43"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" constant="1" id="5cJ-9S-tgC"/>
-                <constraint firstItem="roY-ZB-Hgt" firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" constant="13" id="Cci-sU-jRm"/>
+                <constraint firstItem="U7W-pw-83T" firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="4hQ-yq-tSf"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" constant="-51.5" id="5cJ-9S-tgC"/>
+                <constraint firstItem="U7W-pw-83T" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="158" id="EUG-nl-8L3"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="rlW-3I-vL8" secondAttribute="bottom" constant="8" symbolic="YES" id="Fbn-5y-WBr"/>
                 <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
-                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="28" id="Kzo-t9-V3l"/>
+                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="16" id="Kzo-t9-V3l"/>
+                <constraint firstItem="U7W-pw-83T" firstAttribute="centerX" secondItem="o8w-iX-if8" secondAttribute="centerX" id="LHJ-so-bba"/>
+                <constraint firstItem="rlW-3I-vL8" firstAttribute="trailing" secondItem="kId-c2-rCX" secondAttribute="trailing" id="MBu-Wx-Nt6"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="7" id="MfP-vx-nX0"/>
+                <constraint firstItem="o8w-iX-if8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ts9-lJ-R1R"/>
+                <constraint firstAttribute="bottom" secondItem="o8w-iX-if8" secondAttribute="bottom" id="XEv-oG-OxU"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
+                <constraint firstItem="o8w-iX-if8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="b4M-VO-ax2"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="roY-ZB-Hgt" secondAttribute="bottom" constant="107" id="j6E-fe-QxI"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -48,6 +63,8 @@
         </view>
     </objects>
     <resources>
-        <image name="Nutech-Systems-logoLoad.png" width="288" height="144"/>
+        <image name="Nutech-Systems-logoClear.png" width="288" height="144"/>
+        <image name="PoweredByYellowAPI.png" width="555" height="145"/>
+        <image name="grayGradient.png" width="10" height="100"/>
     </resources>
 </document>
