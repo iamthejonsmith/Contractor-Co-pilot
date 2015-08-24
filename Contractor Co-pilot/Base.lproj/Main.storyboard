@@ -97,9 +97,20 @@
                                     <constraint firstAttribute="width" constant="82" id="T72-2d-DQW"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZU9-7E-ma8">
+                                <rect key="frame" x="289" y="558" width="22" height="22"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="VKq-7z-n6N" kind="show" id="xRh-Xa-4mm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ZU9-7E-ma8" secondAttribute="bottom" constant="20" symbolic="YES" id="22N-wz-USx"/>
+                            <constraint firstItem="ZU9-7E-ma8" firstAttribute="centerX" secondItem="egN-Kj-zC3" secondAttribute="centerX" id="5Js-1f-NgL"/>
                             <constraint firstItem="2EV-bk-ZkR" firstAttribute="top" secondItem="z5A-6z-R2q" secondAttribute="bottom" constant="477" id="8he-W8-Xif"/>
                             <constraint firstItem="jlS-0C-RMh" firstAttribute="centerX" secondItem="egN-Kj-zC3" secondAttribute="centerX" id="Cpt-7F-2kG"/>
                             <constraint firstAttribute="centerX" secondItem="i7e-wW-cqS" secondAttribute="centerX" constant="-91.5" id="FD0-l2-7OX"/>
@@ -129,6 +140,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vs-Ww-f0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="901" y="186"/>
+        </scene>
+        <!--Legal Notice-->
+        <scene sceneID="XuA-hq-xwo">
+            <objects>
+                <viewController title="Legal Notice" id="VKq-7z-n6N" customClass="legalNoticeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XOg-pX-kQg"/>
+                        <viewControllerLayoutGuide type="bottom" id="KZV-Ym-ApD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PNa-ne-MrO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mj7-HY-mL3">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Contractor Co-pilot and all Nutech Logos are trademarks of Nutech Systems, Inc. in Atlanta, Ga. 2012. Use of the Contractor Co-pilot app constitutes agreement to abide by Nutech &amp; Yellow Pages terms and conditions.                                                                                          Yellow Pages &amp; Design is a trademark of Yellow Pages Digital &amp; Media Solutions in Canada.                                  Contractor Co-pilot was designed, coded, and developed by Jonathan Smith. All intellectual rights belong to Nutech Systems, Inc. MEOW           </mutableString>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mj7-HY-mL3" firstAttribute="leading" secondItem="PNa-ne-MrO" secondAttribute="leading" id="gnc-W7-C8m"/>
+                            <constraint firstAttribute="trailing" secondItem="Mj7-HY-mL3" secondAttribute="trailing" id="gng-vH-PRT"/>
+                            <constraint firstItem="Mj7-HY-mL3" firstAttribute="bottom" secondItem="KZV-Ym-ApD" secondAttribute="top" id="vtq-qs-bKd"/>
+                            <constraint firstItem="Mj7-HY-mL3" firstAttribute="top" secondItem="PNa-ne-MrO" secondAttribute="top" id="zCS-Mp-jDc"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FGI-ex-XVn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="901" y="911"/>
         </scene>
         <!--Vendor Location List-->
         <scene sceneID="pL4-V6-cID">

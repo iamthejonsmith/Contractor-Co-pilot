@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9F00DEB31B8B465F00E1DD9A /* grayGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F00DEB21B8B465F00E1DD9A /* grayGradient.png */; };
 		9F2C50021B84D87600E6CEA9 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2C50011B84D87600E6CEA9 /* Location.m */; };
+		9F30C7D51B8B862500CC1E20 /* legalNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F30C7D41B8B862500CC1E20 /* legalNoticeViewController.m */; };
 		9F5F7BD81B8207C100691338 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F7BD71B8207C100691338 /* main.m */; };
 		9F5F7BDB1B8207C100691338 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F7BDA1B8207C100691338 /* AppDelegate.m */; };
 		9F5F7BDE1B8207C100691338 /* Contractor_Co_pilot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F7BDC1B8207C100691338 /* Contractor_Co_pilot.xcdatamodeld */; };
@@ -50,6 +51,8 @@
 		9F00DEB21B8B465F00E1DD9A /* grayGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayGradient.png; sourceTree = "<group>"; };
 		9F2C50001B84D87600E6CEA9 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		9F2C50011B84D87600E6CEA9 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		9F30C7D31B8B862500CC1E20 /* legalNoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = legalNoticeViewController.h; sourceTree = "<group>"; };
+		9F30C7D41B8B862500CC1E20 /* legalNoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = legalNoticeViewController.m; sourceTree = "<group>"; };
 		9F5F7BD21B8207C100691338 /* Contractor Co-pilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Contractor Co-pilot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5F7BD61B8207C100691338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F5F7BD71B8207C100691338 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -178,6 +181,8 @@
 			children = (
 				9F5F7BDF1B8207C100691338 /* locationViewController.h */,
 				9F5F7BE01B8207C100691338 /* locationViewController.m */,
+				9F30C7D31B8B862500CC1E20 /* legalNoticeViewController.h */,
+				9F30C7D41B8B862500CC1E20 /* legalNoticeViewController.m */,
 				9F5F7C121B82177400691338 /* changeLocationViewController.h */,
 				9FAFB3251B86C1FE00C6BA00 /* changeLocationViewController.m */,
 				9F9496591B83CCE900F374D5 /* vendorTypeViewController.h */,
@@ -350,6 +355,7 @@
 			files = (
 				9F5F7C111B82175000691338 /* locationListTableViewController.m in Sources */,
 				9F9496581B83B8FE00F374D5 /* Vendor.m in Sources */,
+				9F30C7D51B8B862500CC1E20 /* legalNoticeViewController.m in Sources */,
 				9F5F7BDE1B8207C100691338 /* Contractor_Co_pilot.xcdatamodeld in Sources */,
 				9F5F7C171B82178600691338 /* locationDetailViewController.m in Sources */,
 				9F94965B1B83CCE900F374D5 /* vendorTypeViewController.m in Sources */,
