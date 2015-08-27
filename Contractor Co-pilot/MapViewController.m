@@ -16,7 +16,7 @@
 @property (nonatomic, strong) CLLocation *firstLoc;
 @property (nonatomic, strong) CLLocation *pointBLocation;
 @property (nonatomic, strong) CLLocation *location;
-
+@property (nonatomic, strong) Vendor *selectedVendor;
 @property (nonatomic, assign) CLLocationCoordinate2D there;
 @property (nonatomic, assign) float lat;
 @property (nonatomic, assign) float longi;
@@ -76,21 +76,30 @@
 {
     static NSString *reuseId = @"StandardPin";
     
-    MKPinAnnotationView *aView = (MKPinAnnotationView *)[sender
-                                                         dequeueReusableAnnotationViewWithIdentifier:reuseId];
+    MKPinAnnotationView *aView = (MKPinAnnotationView *)[sender dequeueReusableAnnotationViewWithIdentifier:reuseId];
     if (aView == nil)
     {
-                aView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:reuseId];
-                UIButton *carButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        aView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:reuseId];
+        UIButton *carButton = [UIButton buttonWithType:UIButtonTypeCustom];
         
-                carButton.frame = CGRectMake(0, 0, 42, 32);
-                carButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-                carButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        carButton.frame = CGRectMake(0, 0, 42, 32);
+        carButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        carButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         
-                [carButton setBackgroundImage:[UIImage imageNamed:@"redCar.png"] forState:UIControlStateNormal];
-                [carButton addTarget:self action:@selector(getDirections) forControlEvents:UIControlEventTouchUpInside];
-                aView.rightCalloutAccessoryView = carButton;
-                aView.canShowCallout = YES;
+        [carButton setBackgroundImage:[UIImage imageNamed:@"redCar.png"] forState:UIControlStateNormal];
+        [carButton addTarget:self action:@selector(getDirections) forControlEvents:UIControlEventTouchUpInside];
+        aView.rightCalloutAccessoryView = carButton;
+        aView.canShowCallout = YES;
+        
+        UIButton *phoneButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        phoneButton.frame = CGRectMake(0, 0, 42, 42);
+        phoneButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        phoneButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        
+        [phoneButton setBackgroundImage:[UIImage imageNamed:@"redPhone.png"] forState:UIControlStateNormal];
+        [phoneButton addTarget:self action:@selector(callVendor) forControlEvents:UIControlEventTouchUpInside];
+        aView.leftCalloutAccessoryView = phoneButton;
     }
     
     aView.annotation = annotation;
@@ -98,10 +107,12 @@
     return aView;   
 }
 
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view
-calloutAccessoryControlTapped:(UIControl *)control
+- (void) callVendor
 {
-    [self getDirections];
+    NSString *phoneChange = _selectedVendor.vendorPhone;
+    NSString *changedNumber = [phoneChange stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *callNumber = [NSString stringWithFormat:@"telprompt://%@",changedNumber];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callNumber]];
 }
 
 - (void)getDirections
@@ -113,8 +124,10 @@ calloutAccessoryControlTapped:(UIControl *)control
 
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    myLocation *location = view.annotation;
+    Vendor *location = view.annotation;
     self.index = [mapView.annotations indexOfObject:location];
+    
+    _selectedVendor = location;
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
