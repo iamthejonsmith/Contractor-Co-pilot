@@ -230,7 +230,6 @@
         
         Vendor *selectedVendor = _vendors[vendorPath.row];
         ldvc.passedVendor = selectedVendor;
-        ;
     }
     else if([segue.destinationViewController isKindOfClass:[MapViewController class]])
     {
@@ -239,7 +238,7 @@
         
         NSArray *passedArray = _vendors;
         mvc.passedArray = passedArray;
-        ;
+        
     }
 }
 

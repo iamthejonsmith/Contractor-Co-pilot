@@ -8,6 +8,7 @@
 
 #import "vendorTypeViewController.h"
 #import "locationListTableViewController.h"
+#import "locationDetailViewController.h"
 #import "Vendor.h"
 #import "AppDelegate.h"
 
