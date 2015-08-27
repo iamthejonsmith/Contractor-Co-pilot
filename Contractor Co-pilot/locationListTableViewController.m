@@ -33,19 +33,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self refreshTableData];
-    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     _vendors = [NSMutableArray array];
     _appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     self.navigationItem.title = _passedVendorType;
+    
+    CAGradientLayer *viewLayer = [_appDelegate makeBackgroundLayerForView:self.view];
+    
+    UIGraphicsBeginImageContext(viewLayer.bounds.size);
+    [viewLayer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage * bgAsImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIImageView *imgView = [[UIImageView alloc]initWithFrame:self.view.frame];
+    imgView.image = bgAsImage;
+    
+    if (bgAsImage != nil)
+    {
+        self.tableView.backgroundView = imgView;
+    }
     [self loadRequest];
-    
-    CAGradientLayer *viewLayer = [_appDelegate makeBackgroundLayerForView:self.tableView];
-    [self.view.layer insertSublayer:viewLayer atIndex:0];
-    
-    
-    
+    [self refreshTableData];
 }
 
 - (void)didReceiveMemoryWarning {

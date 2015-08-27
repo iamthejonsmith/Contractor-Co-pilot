@@ -131,6 +131,7 @@
                               @"Zip": location.zip,
                               @"Latitude": location.latitude,
                               @"Longitude": location.longitude};
+    _appDelegate.myLocation = location;
     
     [[NSUserDefaults standardUserDefaults]setObject:locDict forKey:@"SavedLocation"];
     [[NSUserDefaults standardUserDefaults]synchronize];
