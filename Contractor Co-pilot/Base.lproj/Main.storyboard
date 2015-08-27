@@ -178,9 +178,9 @@
         <!--Vendor Location List-->
         <scene sceneID="pL4-V6-cID">
             <objects>
-                <tableViewController title="Vendor Location List" extendedLayoutIncludesOpaqueBars="YES" id="cvI-vU-Tze" customClass="locationListTableViewController" sceneMemberID="viewController">
+                <tableViewController title="Vendor Location List" id="cvI-vU-Tze" customClass="locationListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fdX-YH-gE0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -217,6 +217,7 @@
                             <outlet property="delegate" destination="cvI-vU-Tze" id="IkE-OL-pK5"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="Vendors" id="Pfm-Tr-2MS">
                         <barButtonItem key="rightBarButtonItem" image="navigate48.png" id="uOY-eV-7We">
                             <connections>
@@ -263,6 +264,9 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Urv-Ae-i7B" userLabel="Phone Label">
                                 <rect key="frame" x="186" y="399" width="229" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" button="YES" staticText="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="m9k-Sr-OVJ"/>
                                 </constraints>
@@ -295,14 +299,35 @@
                                     <constraint firstAttribute="height" constant="18" id="rom-he-mVg"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hmx-6K-2ky">
+                                <rect key="frame" x="243" y="448" width="127" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="127" id="vFZ-KP-6Aw"/>
+                                </constraints>
+                                <state key="normal" title="Call" backgroundImage="redGradient.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="callPhoneNumber:" destination="Fhi-1l-juP" eventType="touchUpInside" id="k2a-Vy-F2T"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AYy-mD-oro" firstAttribute="leading" secondItem="OaM-AE-DRS" secondAttribute="leading" id="0Xo-O1-usP"/>
                             <constraint firstItem="AYy-mD-oro" firstAttribute="top" secondItem="aH7-6I-EHX" secondAttribute="bottom" constant="53" id="0dC-aX-zEP"/>
+                            <constraint firstItem="Hmx-6K-2ky" firstAttribute="top" secondItem="OaM-AE-DRS" secondAttribute="bottom" constant="68" id="1u5-bl-mmh"/>
                             <constraint firstItem="aH7-6I-EHX" firstAttribute="centerX" secondItem="OaM-AE-DRS" secondAttribute="centerX" id="IeJ-Ac-w8p"/>
+                            <constraint firstItem="Hmx-6K-2ky" firstAttribute="bottom" secondItem="Urv-Ae-i7B" secondAttribute="bottom" constant="29" id="J15-uV-ptR"/>
                             <constraint firstItem="hkg-9b-PRH" firstAttribute="centerX" secondItem="AYy-mD-oro" secondAttribute="centerX" id="SgA-Sc-aqa"/>
                             <constraint firstItem="Urv-Ae-i7B" firstAttribute="top" secondItem="OaM-AE-DRS" secondAttribute="bottom" constant="19" id="TvL-4V-YfD"/>
+                            <constraint firstItem="Hmx-6K-2ky" firstAttribute="centerX" secondItem="OaM-AE-DRS" secondAttribute="centerX" id="VX9-X0-ZIo"/>
                             <constraint firstItem="hkg-9b-PRH" firstAttribute="top" secondItem="gDa-ck-BeE" secondAttribute="bottom" constant="107" id="Wca-4R-5Lq"/>
                             <constraint firstItem="aH7-6I-EHX" firstAttribute="top" secondItem="gDa-ck-BeE" secondAttribute="bottom" constant="8" symbolic="YES" id="XUP-kv-6v2"/>
                             <constraint firstItem="Urv-Ae-i7B" firstAttribute="centerX" secondItem="UWV-Ef-WvV" secondAttribute="centerX" id="eKn-rg-B35"/>
@@ -317,6 +342,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addressLabel" destination="OaM-AE-DRS" id="3jc-fP-gjg"/>
+                        <outlet property="callButton" destination="Hmx-6K-2ky" id="fUs-Ic-uJj"/>
                         <outlet property="nameLabel" destination="AYy-mD-oro" id="rrR-2E-bZg"/>
                         <outlet property="phoneLabel" destination="Urv-Ae-i7B" id="YK9-tr-EhI"/>
                     </connections>
