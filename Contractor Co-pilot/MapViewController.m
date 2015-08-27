@@ -32,7 +32,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -117,7 +116,6 @@
 
 - (void)getDirections
 {
-    
     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Directions" message:@"Would you like directions to this destination?" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
     [alertView show];
 }

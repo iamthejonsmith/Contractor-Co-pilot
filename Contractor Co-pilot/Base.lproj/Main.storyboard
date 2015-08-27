@@ -156,7 +156,6 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mj7-HY-mL3">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">Contractor Co-pilot and all Nutech Logos are trademarks of Nutech Systems, Inc. in Atlanta, Ga. 2012. Use of the Contractor Co-pilot app constitutes agreement to abide by Nutech &amp; Yellow Pages terms and conditions.                                                                                          Yellow Pages &amp; Design is a trademark of Yellow Pages Digital &amp; Media Solutions in Canada.                                  Contractor Co-pilot was designed, coded, and developed by Jonathan Smith. All intellectual rights belong to Nutech Systems, Inc. MEOW           </string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
@@ -170,10 +169,13 @@
                             <constraint firstItem="Mj7-HY-mL3" firstAttribute="top" secondItem="PNa-ne-MrO" secondAttribute="top" id="zCS-Mp-jDc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="Mj7-HY-mL3" id="VDP-W3-4fm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGI-ex-XVn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901" y="911"/>
+            <point key="canvasLocation" x="901" y="897"/>
         </scene>
         <!--Vendor Location List-->
         <scene sceneID="pL4-V6-cID">
