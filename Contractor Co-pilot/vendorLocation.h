@@ -11,8 +11,6 @@
 
 @protocol vendorLocationDelegate <NSObject>
 
-//- (void)itemsRetrieved:(NSArray *)items;
-
 -(void)loadingOverlay;
 
 -(void)hideOverlay;

@@ -33,5 +33,20 @@
     return [self initWithVendor:nil andAddress:nil andPhone:nil andLatitude:nil andLongitude:nil andDistance:0];
 }
 
+- (NSString *)title
+{
+    if ([_vendorName isKindOfClass:[NSNull class]])
+        return @"Unknown Location";
+    else
+        return _vendorName;
+}
+
+- (NSString *)subtitle
+{
+    if ([_vendorAddress isKindOfClass:[NSNull class]])
+        return @"Unknown Address";
+    else
+        return _vendorAddress;
+}
 
 @end

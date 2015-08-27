@@ -72,14 +72,49 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (MKAnnotationView *)mapView:(MKMapView *)sender viewForAnnotation:(id < MKAnnotation >)annotation
+{
+    static NSString *reuseId = @"StandardPin";
+    
+    MKPinAnnotationView *aView = (MKPinAnnotationView *)[sender
+                                                         dequeueReusableAnnotationViewWithIdentifier:reuseId];
+    if (aView == nil)
+    {
+                aView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:reuseId];
+                UIButton *carButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+                carButton.frame = CGRectMake(0, 0, 42, 32);
+                carButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+                carButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        
+                [carButton setBackgroundImage:[UIImage imageNamed:@"redCar.png"] forState:UIControlStateNormal];
+                [carButton addTarget:self action:@selector(getDirections) forControlEvents:UIControlEventTouchUpInside];
+                aView.rightCalloutAccessoryView = carButton;
+                aView.canShowCallout = YES;
+    }
+    
+    aView.annotation = annotation;
+    
+    return aView;   
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view
+calloutAccessoryControlTapped:(UIControl *)control
+{
+    [self getDirections];
+}
+
+- (void)getDirections
+{
+    
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Directions" message:@"Would you like directions to this destination?" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
+    [alertView show];
+}
 
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
     myLocation *location = view.annotation;
     self.index = [mapView.annotations indexOfObject:location];
-    
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Directions" message:@"Would you like directions to this destination?" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
-    [alertView show];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -89,7 +124,6 @@
         Vendor *loc = self.map.annotations[_index];
         [self routeMapWithLocation:loc];
     }
-    
     else
     {
         [alertView dismissWithClickedButtonIndex:1 animated:YES];
@@ -113,6 +147,7 @@
             NSArray* mapItems = [[NSArray alloc] initWithObjects: destMapItem, nil];
             NSDictionary* options = [NSDictionary dictionaryWithObjectsAndKeys:MKLaunchOptionsDirectionsModeDriving, MKLaunchOptionsDirectionsModeKey, nil];
             [MKMapItem openMapsWithItems:mapItems launchOptions:options];
+            
         }
     }];
 }
