@@ -14,7 +14,7 @@
 #import "Vendor.h"
 #import "MBProgressHUD.h"
 
-@interface locationListTableViewController ()
+@interface locationListTableViewController ()<UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *vendorTable;
 @property (strong, nonatomic) Vendor *currentVendor;
@@ -41,8 +41,11 @@
     self.navigationItem.title = _passedVendorType;
     [self loadRequest];
     
-    CAGradientLayer *viewLayer = [_appDelegate makeBackgroundLayerForView:self.view];
+    CAGradientLayer *viewLayer = [_appDelegate makeBackgroundLayerForView:self.tableView];
     [self.view.layer insertSublayer:viewLayer atIndex:0];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -124,6 +127,7 @@
         NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
         self.refreshControl.attributedTitle = attributedTitle;
         
+        
         [self.refreshControl endRefreshing];
     }
 }
@@ -139,7 +143,7 @@
     [self loadingOverlay];
     NSString *location = _appDelegate.myLocation.city;
     NSString *queryString = [_passedVendorType stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-    NSString *urlString = [NSString stringWithFormat:@"http://pubapi.yp.com/search-api/search/devapi/search?searchloc=%@&term=%@&format=json&sort=distance&listingcount=30&key=p9hc4k9mbg",location, queryString];
+    NSString *urlString = [NSString stringWithFormat:@"http://pubapi.yp.com/search-api/search/devapi/search?searchloc=%@&term=%@&format=json&sort=distance&listingcount=50&key=p9hc4k9mbg",location, queryString];
     NSURL *myURL = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:myURL];
     NSURLSessionTask *task = [_session dataTaskWithRequest:request completionHandler:
@@ -149,27 +153,44 @@
                                                                                                options:0
                                                                                                 error:nil];
                                   NSDictionary *searchResult = responseData[@"searchResult"];
-                                  NSDictionary *searchListings = searchResult[@"searchListings"];
+                                  
+                                  id searchListings = searchResult[@"searchListings"];
+                                  
+                                  //NSDictionary *searchListings = searchResult[@"searchListings"];
                                   
                                   if (responseData) {
+                                      if ([searchListings isKindOfClass:[NSString class]]) {
+                                          dispatch_async(dispatch_get_main_queue(), ^{
+                                          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"SORRY!"
+                                                                                          message:@"There are no results for that vendor!\n Please try again."
+                                                                                         delegate:self
+                                                                                cancelButtonTitle:@"OK"
+                                                                                otherButtonTitles:nil];
+                                          [alert show];
+                                              });
+                                      }
+                                      else
+                                      {
                                       NSArray *immutableListings = searchListings[@"searchListing"];
-                                      for (NSDictionary *listingDictionary in immutableListings) {
-                                          NSString *name = listingDictionary[@"businessName"];
-                                          NSString *phone = listingDictionary[@"phone"];
-                                          NSString *street = listingDictionary[@"street"];
-                                          NSString *city = listingDictionary[@"city"];
-                                          NSString *state = listingDictionary[@"state"];
-                                          NSString *zip = listingDictionary[@"zip"];
-                                          NSString *latitude = listingDictionary[@"latitude"];
-                                          NSString *longitude = listingDictionary[@"longitude"];
-                                          NSString *distance = listingDictionary[@"distance"];
-                                          NSString *address = [NSString stringWithFormat:@"%@ %@, %@ %@", street, city, state, zip];
+                                      for (NSDictionary *listingDictionary in immutableListings)
+                                      {
+                                            NSString *name = listingDictionary[@"businessName"];
+                                            NSString *phone = listingDictionary[@"phone"];
+                                            NSString *street = listingDictionary[@"street"];
+                                            NSString *city = listingDictionary[@"city"];
+                                            NSString *state = listingDictionary[@"state"];
+                                            NSString *zip = listingDictionary[@"zip"];
+                                            NSString *latitude = listingDictionary[@"latitude"];
+                                            NSString *longitude = listingDictionary[@"longitude"];
+                                            NSString *distance = listingDictionary[@"distance"];
+                                            NSString *address = [NSString stringWithFormat:@"%@ %@, %@ %@", street, city, state, zip];
     
-                                          double vendorDistance = [distance doubleValue];
+                                            double vendorDistance = [distance doubleValue];
                                           
-                                          Vendor *vendor = [[Vendor alloc]initWithVendor:name andAddress:address andPhone:phone andLatitude:latitude andLongitude:longitude andDistance:vendorDistance];
-                                          [_vendors addObject:vendor];  
+                                            Vendor *vendor = [[Vendor alloc]initWithVendor:name andAddress:   address andPhone:phone andLatitude:latitude andLongitude:  longitude andDistance:vendorDistance];
+                                            [_vendors addObject:vendor];
                                           
+                                        }
                                       }
                                       dispatch_async(dispatch_get_main_queue(), ^{
                                           [self.tableView reloadData];
@@ -178,6 +199,12 @@
                                   };
                               }];
     [task resume];
+                              
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Loading Overlay methods

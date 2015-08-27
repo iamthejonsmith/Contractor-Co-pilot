@@ -29,6 +29,9 @@
     // Do any additional setup after loading the view.
     
     // Initialize Data
+}
+- (void)viewWillAppear:(BOOL)animated
+{
     _pickerData = @[@"Property Rental", @"Electric Utilities", @"Water Utilities", @"Garbage Utilities", @"Gas Utilities", @"Mailing Center", @"Transportation", @"Restaraunts", @"Entertainment", @"Fuel", @"Grocers", @"Discount Stores", @"Custom Search"];
     
     
@@ -137,6 +140,7 @@
 {
     
     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Enter a Vendor" message:@"Please enter a vendor to search for." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    alertView.tag = 0;
     
     UITextField *vendorTypeField = [alertView textFieldAtIndex:0];
     vendorTypeField.keyboardAppearance = UIKeyboardAppearanceDark;
@@ -147,13 +151,33 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    UITextField *alertField = [alertView textFieldAtIndex:0];
+    if(alertView.tag == 0)
+    {
+        UITextField *alertField = [alertView textFieldAtIndex:0];
+        // Check to see if it's blank
+        if([alertField.text isEqualToString:@""]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"SORRY!"
+                                                        message:@"There are no results for that vendor!\n Please try again."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+            alert.tag = 1;
+            [alert show];
+        }
+        else
+        {
+            _ypSearchString = alertField.text;
+        
+            _pickerData = @[@"Property Rental", @"Utilities", @"Mailing Center", @"Transportation", @"Restaraunts", @"Entertainment", @"Fuel", @"Grocers", @"Discount Stores", alertField.text];
+        
+            [_vendorPicker reloadAllComponents];
+        }
+    }
     
-    _ypSearchString = alertField.text;
-
-     _pickerData = @[@"Property Rental", @"Utilities", @"Mailing Center", @"Transportation", @"Restaraunts", @"Entertainment", @"Fuel", @"Grocers", @"Discount Stores", alertField.text];
-    
-    [_vendorPicker reloadAllComponents];
+    else
+    {
+        [self displayAlert];
+    }
 }
 
 #pragma mark - Navigation
