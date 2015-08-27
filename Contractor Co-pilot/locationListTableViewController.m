@@ -141,7 +141,8 @@
                                              delegate:nil
                                         delegateQueue:nil];
     [self loadingOverlay];
-    NSString *location = _appDelegate.myLocation.city;
+    NSString *locationString = [NSString stringWithFormat:@"%@ %@, %@, %@ %@",_appDelegate.myLocation.streetNumber, _appDelegate.myLocation.streetName,_appDelegate.myLocation.city,_appDelegate.myLocation.state, _appDelegate.myLocation.zip];
+    NSString *location = [locationString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     NSString *queryString = [_passedVendorType stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     NSString *urlString = [NSString stringWithFormat:@"http://pubapi.yp.com/search-api/search/devapi/search?searchloc=%@&term=%@&format=json&sort=distance&listingcount=50&key=p9hc4k9mbg",location, queryString];
     NSURL *myURL = [NSURL URLWithString:urlString];
