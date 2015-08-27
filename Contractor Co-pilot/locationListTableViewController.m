@@ -138,8 +138,8 @@
                                         delegateQueue:nil];
     [self loadingOverlay];
     NSString *location = _appDelegate.myLocation.city;
-    NSString *queryString = [_passedVendorType stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-    NSString *urlString = [NSString stringWithFormat:@"http://api.sandbox.yellowapi.com/FindBusiness/?what=%@&where=%@&fmt=json&UID=127.0.0.1&apikey=svu68f2kz5snynqrdnetv76u", queryString, location];
+    NSString *queryString = [_passedVendorType stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    NSString *urlString = [NSString stringWithFormat:@"http://pubapi.yp.com/search-api/search/devapi/search?searchloc=%@&term=%@&format=json&sort=distance&listingcount=30&key=p9hc4k9mbg",location, queryString];
     NSURL *myURL = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:myURL];
     NSURLSessionTask *task = [_session dataTaskWithRequest:request completionHandler:
@@ -147,52 +147,28 @@
                               {
                                   NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:data
                                                                                                options:0
-                                                                                                 error:nil];
+                                                                                                error:nil];
+                                  NSDictionary *searchResult = responseData[@"searchResult"];
+                                  NSDictionary *searchListings = searchResult[@"searchListings"];
                                   
                                   if (responseData) {
-                                      NSArray *immutableListings = responseData[@"listings"];
+                                      NSArray *immutableListings = searchListings[@"searchListing"];
                                       for (NSDictionary *listingDictionary in immutableListings) {
-                                          NSString *name = listingDictionary[@"name"];
-                                          NSDictionary *addressDict = listingDictionary[@"address"];
-                                          NSString *street = addressDict[@"street"];
-                                          NSString *city = addressDict[@"city"];
-                                          NSString *state = addressDict[@"prov"];
-                                          NSString *zip = addressDict[@"pcode"];
+                                          NSString *name = listingDictionary[@"businessName"];
+                                          NSString *phone = listingDictionary[@"phone"];
+                                          NSString *street = listingDictionary[@"street"];
+                                          NSString *city = listingDictionary[@"city"];
+                                          NSString *state = listingDictionary[@"state"];
+                                          NSString *zip = listingDictionary[@"zip"];
+                                          NSString *latitude = listingDictionary[@"latitude"];
+                                          NSString *longitude = listingDictionary[@"longitude"];
+                                          NSString *distance = listingDictionary[@"distance"];
+                                          NSString *address = [NSString stringWithFormat:@"%@ %@, %@ %@", street, city, state, zip];
+    
+                                          double vendorDistance = [distance doubleValue];
                                           
-                                          NSString *latitude;
-                                          NSString *longitude;
-                                          NSString *address;
-                                          
-                                          if(![listingDictionary[@"geoCode"] isEqual:[NSNull null]])
-                                          {
-                                              latitude = listingDictionary[@"geoCode"][@"latitude"];
-                                              longitude = listingDictionary[@"geoCode"][@"longitude"];
-                                              address = [NSString stringWithFormat:@"%@ %@, %@ %@", street, city, state, zip];
-                                          }
-                                          
-                                          else
-                                          {
-                                              latitude = _appDelegate.myLocation.latitude;
-                                              longitude = _appDelegate.myLocation.longitude;
-                                              address = _appDelegate.currLocation;
-                                          }
-                                          
-                                          double myLat = [_appDelegate.myLocation.latitude doubleValue];
-                                          double myLong = [_appDelegate.myLocation.longitude doubleValue];
-                                          double vendorLat = [latitude doubleValue];
-                                          double vendorLong = [longitude doubleValue];
-                                          
-                                          CLLocation *myLoc = [[CLLocation alloc]initWithLatitude:myLat longitude:myLong];
-                                          
-                                          CLLocation *vendorLoc = [[CLLocation alloc]initWithLatitude:vendorLat longitude:vendorLong];
-                                          
-                                          float meterDistance = [myLoc distanceFromLocation:vendorLoc];
-                                          
-                                          _distance = (meterDistance/1275.758);
-                                          
-                                          Vendor *vendor = [[Vendor alloc]initWithVendor:name andAddress:address andPhone:nil andLatitude:latitude andLongitude:longitude andDistance:_distance];
-                                          [_vendors addObject:vendor];
-                                          
+                                          Vendor *vendor = [[Vendor alloc]initWithVendor:name andAddress:address andPhone:phone andLatitude:latitude andLongitude:longitude andDistance:vendorDistance];
+                                          [_vendors addObject:vendor];  
                                           
                                       }
                                       dispatch_async(dispatch_get_main_queue(), ^{
@@ -221,7 +197,6 @@
 {
     if([segue.destinationViewController isKindOfClass:[locationDetailViewController class]])
     {
-        
         locationDetailViewController *ldvc = (locationDetailViewController *)segue.destinationViewController;
         NSIndexPath *vendorPath = [self.vendorTable indexPathForSelectedRow];
         

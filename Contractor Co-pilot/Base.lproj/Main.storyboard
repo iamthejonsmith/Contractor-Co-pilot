@@ -156,7 +156,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mj7-HY-mL3">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Contractor Co-pilot and all Nutech Logos are trademarks of Nutech Systems, Inc. in Atlanta, Ga. 2012. Use of the Contractor Co-pilot app constitutes agreement to abide by Nutech &amp; Yellow Pages terms and conditions.                                                                                          Yellow Pages &amp; Design is a trademark of Yellow Pages Digital &amp; Media Solutions in Canada.                                  Contractor Co-pilot was designed, coded, and developed by Jonathan Smith. All intellectual rights belong to Nutech Systems, Inc. MEOW           </mutableString>
+                                <string key="text">Contractor Co-pilot and all Nutech Logos are trademarks of Nutech Systems, Inc. in Atlanta, Ga. 2012. Use of the Contractor Co-pilot app constitutes agreement to abide by Nutech &amp; Yellow Pages terms and conditions.                                                                                          Yellow Pages &amp; Design is a trademark of Yellow Pages Digital &amp; Media Solutions in Canada.                                  Contractor Co-pilot was designed, coded, and developed by Jonathan Smith. All intellectual rights belong to Nutech Systems, Inc. MEOW           </string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
@@ -277,7 +277,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nutech-Systems-logoClear.png" translatesAutoresizingMaskIntoConstraints="NO" id="aH7-6I-EHX">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NuTechLogoClear.png" translatesAutoresizingMaskIntoConstraints="NO" id="aH7-6I-EHX">
                                 <rect key="frame" x="157" y="72" width="298" height="110"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -588,8 +588,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NuTechLogoClear.png" width="120" height="120"/>
-        <image name="Nutech-Systems-logoClear.png" width="288" height="144"/>
+        <image name="NuTechLogoClear.png" width="128" height="128"/>
         <image name="PoweredByYellowAPI.png" width="555" height="145"/>
         <image name="navigate48.png" width="32" height="32"/>
         <image name="redGradient.png" width="10" height="100"/>

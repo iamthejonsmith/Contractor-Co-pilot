@@ -29,7 +29,8 @@
     // Do any additional setup after loading the view.
     
     // Initialize Data
-    _pickerData = @[@"Property Rental", @"Utilities", @"Mailing Center", @"Transportation", @"Restaraunts", @"Entertainment", @"Fuel", @"Grocers", @"Discount Stores", @"Custom Search"];
+    _pickerData = @[@"Property Rental", @"Electric Utilities", @"Water Utilities", @"Garbage Utilities", @"Gas Utilities", @"Mailing Center", @"Transportation", @"Restaraunts", @"Entertainment", @"Fuel", @"Grocers", @"Discount Stores", @"Custom Search"];
+    
     
     // Connect data
     self.vendorPicker.dataSource = self;
@@ -82,30 +83,39 @@
             _ypSearchString = @"Property Rental";
             break;
         case 1:
-            _ypSearchString = @"Utilities";
+            _ypSearchString = @"Electric Utilities";
             break;
         case 2:
-            _ypSearchString = @"Mailing Center";
+            _ypSearchString = @"Water Utilities";
             break;
         case 3:
-            _ypSearchString = @"Transportation";
+            _ypSearchString = @"Garbage Utilities";
             break;
         case 4:
-            _ypSearchString = @"Restaraunts";
+            _ypSearchString = @"Gas Utilities";
             break;
         case 5:
-            _ypSearchString = @"Entertainment";
+            _ypSearchString = @"Mailing Center";
             break;
         case 6:
-            _ypSearchString = @"Fuel";
+            _ypSearchString = @"Transportation";
             break;
         case 7:
-            _ypSearchString = @"Grocers";
+            _ypSearchString = @"Restaraunts";
             break;
         case 8:
-            _ypSearchString = @"Discount Stores";
+            _ypSearchString = @"Entertainment";
             break;
         case 9:
+            _ypSearchString = @"Fuel";
+            break;
+        case 10:
+            _ypSearchString = @"Grocers";
+            break;
+        case 11:
+            _ypSearchString = @"Discount Stores";
+            break;
+        case 12:
             _ypSearchString = @"Custom Search";
             [self displayAlert];
             break;
