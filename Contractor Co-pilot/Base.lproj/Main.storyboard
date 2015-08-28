@@ -353,10 +353,10 @@
             </objects>
             <point key="canvasLocation" x="2365" y="518"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Vendor Map-->
         <scene sceneID="fDG-I7-vp7">
             <objects>
-                <viewController id="yjb-HU-NRn" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController title="Vendor Map" id="yjb-HU-NRn" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uKH-m9-dBD"/>
                         <viewControllerLayoutGuide type="bottom" id="SmH-I8-QW3"/>

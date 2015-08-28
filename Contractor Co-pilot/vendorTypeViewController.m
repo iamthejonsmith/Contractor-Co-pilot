@@ -30,6 +30,7 @@
     // Do any additional setup after loading the view.
     
     // Initialize Data
+    self.navigationItem.title = @"Vendor Type";
 }
 - (void)viewWillAppear:(BOOL)animated
 {
